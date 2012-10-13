@@ -20,7 +20,7 @@
 - (NSMutableArray *)hotEventInfos
 {
 	if (_hotEventInfos == nil) {
-		_hotEventInfos = [@[@{@"theme" : @"三日初创", @"time" : @"这两天"}, @{@"theme" : @"测试数据2", @"time" : @"这三天"}, @{@"theme" : @"啦啦啦啦", @"time" : @"噗噗"}, @{@"theme" : @"试试看", @"time" : @"嘿嘿"}, @{@"theme" : @"牛", @"time" : @"一二三"}, @{@"theme" : @"三日初创", @"time" : @"这两天"}, @{@"theme" : @"测试数据2", @"time" : @"这三天"}, @{@"theme" : @"啦啦啦啦", @"time" : @"噗噗"}, @{@"theme" : @"试试看", @"time" : @"嘿嘿"}, @{@"theme" : @"牛", @"time" : @"一二三"}] mutableCopy];
+		_hotEventInfos = [@[@{@"title" : @"三日初创", @"time" : @"这两天", @"location" : @"光华楼", @"like" : @432 }, @{@"title" : @"测试数据2", @"time" : @"这三天", @"location" : @"光华楼", @"like" : @14}, @{@"title" : @"啦啦啦啦", @"time" : @"噗噗", @"location" : @"光华楼", @"like" : @155}, @{@"title" : @"试试看", @"time" : @"嘿嘿", @"location" : @"光华楼", @"like" : @315}, @{@"title" : @"牛", @"time" : @"一二三", @"location" : @"光华楼", @"like" : @15}, @{@"title" : @"三日初创", @"time" : @"这两天", @"location" : @"光华楼", @"like" : @15}, @{@"title" : @"测试数据2", @"time" : @"这三天", @"location" : @"光华楼", @"like" : @165}, @{@"title" : @"啦啦啦啦", @"time" : @"噗噗", @"location" : @"光华楼", @"like" : @125}, @{@"title" : @"试试看", @"time" : @"嘿嘿", @"location" : @"光华楼", @"like" : @15}, @{@"title" : @"牛", @"time" : @"一二三", @"location" : @"光华楼", @"like" : @135}] mutableCopy];
 	}
 	return _hotEventInfos;
 }
@@ -39,8 +39,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.hotEvents.type = iCarouselTypeTimeMachine;
-	self.themeLabel.text = [[self.hotEventInfos objectAtIndex:0] objectForKey:@"theme"];
-	self.timeLabel.text = [[self.hotEventInfos objectAtIndex:0] objectForKey:@"time"];
+	[self carouselCurrentItemIndexDidChange:self.hotEvents];
+	
 //	[[Coffeepot shared] requestWithMethodPath:@"university/" params:nil requestMethod:@"GET" success:^(CPRequest *request, id collection) {
 //		;
 //	} error:^(CPRequest *request, NSError *error) {
@@ -103,15 +103,16 @@
 
 - (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel
 {
-	NSLog(@"%d", carousel.currentItemIndex);
 	NSInteger index = carousel.currentItemIndex;
-	self.themeLabel.text = [[self.hotEventInfos objectAtIndex:index] objectForKey:@"theme"];
+	self.titleLabel.text = [[self.hotEventInfos objectAtIndex:index] objectForKey:@"title"];
 	self.timeLabel.text = [[self.hotEventInfos objectAtIndex:index] objectForKey:@"time"];
+	self.locationLabel.text = [[self.hotEventInfos objectAtIndex:index] objectForKey:@"location"];
+	self.likeLabel.text = [NSString stringWithFormat:@"%@", [[self.hotEventInfos objectAtIndex:index] objectForKey:@"like"]];
 }
 
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
 {
-	NSLog(@"%d", carousel.currentItemIndex);
+	
 }
 
 @end

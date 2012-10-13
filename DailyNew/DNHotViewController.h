@@ -12,7 +12,9 @@
 @interface DNHotViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet iCarousel *hotEvents;
-@property (weak, nonatomic) IBOutlet UILabel *themeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *likeLabel;
 
 @end

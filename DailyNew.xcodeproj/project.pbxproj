@@ -27,7 +27,6 @@
 		2616AB5516295F0800AFFF2B /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 2616AB5216295F0800AFFF2B /* page.png */; };
 		2616AB5616295F0800AFFF2B /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2616AB5316295F0800AFFF2B /* placeholder.png */; };
 		2616AB5916295F9600AFFF2B /* Objection-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2616AB5816295F9600AFFF2B /* Objection-iOS.framework */; };
-		2616AB641629652B00AFFF2B /* dislike.png in Resources */ = {isa = PBXBuildFile; fileRef = 2616AB621629652B00AFFF2B /* dislike.png */; };
 		2616AB651629652B00AFFF2B /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 2616AB631629652B00AFFF2B /* like.png */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +60,6 @@
 		2616AB5216295F0800AFFF2B /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page.png; sourceTree = "<group>"; };
 		2616AB5316295F0800AFFF2B /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		2616AB5816295F9600AFFF2B /* Objection-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "Objection-iOS.framework"; sourceTree = "<group>"; };
-		2616AB621629652B00AFFF2B /* dislike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dislike.png; sourceTree = "<group>"; };
 		2616AB631629652B00AFFF2B /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,7 +172,6 @@
 		2616AB5016295F0800AFFF2B /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				2616AB621629652B00AFFF2B /* dislike.png */,
 				2616AB631629652B00AFFF2B /* like.png */,
 				2616AB5116295F0800AFFF2B /* background.png */,
 				2616AB5216295F0800AFFF2B /* page.png */,
@@ -243,7 +240,6 @@
 				2616AB5416295F0800AFFF2B /* background.png in Resources */,
 				2616AB5516295F0800AFFF2B /* page.png in Resources */,
 				2616AB5616295F0800AFFF2B /* placeholder.png in Resources */,
-				2616AB641629652B00AFFF2B /* dislike.png in Resources */,
 				2616AB651629652B00AFFF2B /* like.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
