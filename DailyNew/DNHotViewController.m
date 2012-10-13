@@ -13,27 +13,18 @@
 
 @interface DNHotViewController () <iCarouselDelegate>
 
-@property (strong, nonatomic) NSMutableArray *hotEvents;
-@property (strong, nonatomic) NSMutableArray *universities;
+@property (strong, nonatomic) NSArray *hotEvents;
 
 @end
 
 @implementation DNHotViewController
 
-- (NSMutableArray *)hotEvents
+- (NSArray *)hotEvents
 {
 	if (_hotEvents == nil) {
-		_hotEvents = [[DNEventsData shared] hotEvents];
+		_hotEvents = [[DNEventsData shared] hotEventsByUniversityID:[[[DNEventsData shared] university] objectForKey:@"id"]];
 	}
 	return _hotEvents;
-}
-
-- (NSMutableArray *)universities
-{
-	if (_universities == nil) {
-		_universities = [[DNEventsData shared] universities];
-	}
-	return _universities;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -50,8 +41,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 	
-	[self.carousel setScrollToItemBoundary:NO];
 	[self carouselCurrentItemIndexDidChange:self.carousel];
+	self.navigationItem.title = [NSString stringWithFormat:@"一周热点@%@", [[[DNEventsData shared] university] objectForKey:@"name"]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -95,7 +86,7 @@
         label = [[UILabel alloc] initWithFrame:view.bounds];
         label.backgroundColor = [UIColor clearColor];
         label.textAlignment = UITextAlignmentCenter;
-        label.font = [label.font fontWithSize:50];
+        label.font = [label.font fontWithSize:40];
         label.tag = 1;
         [view addSubview:label];
     }
@@ -110,14 +101,14 @@
     //views outside of the `if (view == nil) {...}` check otherwise
     //you'll get weird issues with carousel item content appearing
     //in the wrong place in the carousel
-    label.text = [NSString stringWithFormat:@"%d", index];
+    label.text = [[self.hotEvents objectAtIndex:index] objectForKey:@"title"];
     
     return view;
 }
 
 - (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel
 {
-	NSInteger index = carousel.currentItemIndex;
+	NSInteger index = [self.carousel currentItemIndex];
 	self.titleLabel.text = [[self.hotEvents objectAtIndex:index] objectForKey:@"title"];
 	self.timeLabel.text = [[self.hotEvents objectAtIndex:index] objectForKey:@"time"];
 	self.locationLabel.text = [[self.hotEvents objectAtIndex:index] objectForKey:@"location"];
@@ -139,19 +130,22 @@
 }
 
 - (IBAction)changeUniversity:(id)sender {
-	
-	NSMutableArray *universityNames = [@[] mutableCopy];
-	for (NSDictionary *university in self.universities) {
-		[universityNames addObject:[university objectForKey:@"name"]];
-	}
-	
 	ActionSheetStringPicker *universityPicker =
 	[[ActionSheetStringPicker alloc] initWithTitle:@"选择学校"
-											  rows:universityNames
+											  rows:[[DNEventsData shared] universityNames]
 								  initialSelection:[[DNEventsData shared].universities indexOfObject:[[DNEventsData shared] university]]
 										 doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
-											 [[DNEventsData shared] setUniversity:[self.universities objectAtIndex:selectedIndex]];
+											 
+											 [[NSUserDefaults standardUserDefaults] setObject:[[[DNEventsData shared].universities objectAtIndex:selectedIndex] objectForKey:@"id"] forKey:@"university_id"];
+											 [[NSUserDefaults standardUserDefaults] synchronize];
+											 
+											 [[DNEventsData shared] setUniversity:[[DNEventsData shared].universities objectAtIndex:selectedIndex]];
 											 self.navigationItem.title = [NSString stringWithFormat:@"一周热点@%@", selectedValue];
+											 
+											 self.hotEvents = [[DNEventsData shared] hotEventsByUniversityID:[[[DNEventsData shared] university] objectForKey:@"id"]];
+											 [self.carousel reloadData];
+											 [self carouselCurrentItemIndexDidChange:self.carousel];
+											 
 										 }
 									   cancelBlock:^(ActionSheetStringPicker *picker) {
 										 

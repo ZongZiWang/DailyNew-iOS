@@ -8,6 +8,7 @@
 
 #import "DNPreferencesViewController.h"
 #import "ActionSheetStringPicker.h"
+#import "DNEventsData.h"
 
 @interface DNPreferencesViewController ()
 
@@ -51,8 +52,8 @@
 	self.root.title = @"偏好设置";
 	self.root.grouped = YES;
 	
-	self.notificationTimes = @[@"提前10分钟", @"提前1小时", @"提前一天", @"提前一周"];
-	self.displayTypes = @[@"线性", @"旋转", @"反向旋转", @"圆柱", @"反向圆柱", @"轮盘", @"反向轮盘", @"CoverFlow类型一", @"CoverFlow类型二", @"时光机", @"反向时光机"];
+	self.notificationTimes = [[DNEventsData shared] notificationTimes];
+	self.displayTypes = [[DNEventsData shared] displayTypes];
 	
 	QSection *userInfoSection = [[QSection alloc] init];
 	[self.root addSection:userInfoSection];

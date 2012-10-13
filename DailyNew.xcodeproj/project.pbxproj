@@ -94,6 +94,7 @@
 		26BE45A41629A77E000F3CC5 /* DNPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BE45A31629A77E000F3CC5 /* DNPreferencesViewController.m */; };
 		26BE45AA1629A862000F3CC5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BE45A91629A862000F3CC5 /* MapKit.framework */; };
 		26BE45AC1629A869000F3CC5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BE45AB1629A869000F3CC5 /* CoreLocation.framework */; };
+		26BE45AF1629B278000F3CC5 /* DNAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BE45AE1629B278000F3CC5 /* DNAllViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -261,6 +262,8 @@
 		26BE45A31629A77E000F3CC5 /* DNPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNPreferencesViewController.m; path = ../DNPreferencesViewController.m; sourceTree = "<group>"; };
 		26BE45A91629A862000F3CC5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		26BE45AB1629A869000F3CC5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		26BE45AD1629B278000F3CC5 /* DNAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNAllViewController.h; sourceTree = "<group>"; };
+		26BE45AE1629B278000F3CC5 /* DNAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNAllViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,13 +328,15 @@
 				2616AB09162945CB00AFFF2B /* DNAppDelegate.h */,
 				2616AB0A162945CB00AFFF2B /* DNAppDelegate.m */,
 				2616AB12162945CB00AFFF2B /* MainStoryboard.storyboard */,
-				2616AB341629525800AFFF2B /* DNHotViewController.h */,
-				2616AB351629525800AFFF2B /* DNHotViewController.m */,
 				26BE449F16298F4E000F3CC5 /* DNEventsData.h */,
 				26BE44A016298F4E000F3CC5 /* DNEventsData.m */,
+				2616AB341629525800AFFF2B /* DNHotViewController.h */,
+				2616AB351629525800AFFF2B /* DNHotViewController.m */,
+				26BE45AD1629B278000F3CC5 /* DNAllViewController.h */,
+				26BE45AE1629B278000F3CC5 /* DNAllViewController.m */,
+				26BE44F51629A44F000F3CC5 /* eventCell.xib */,
 				26BE45A21629A77E000F3CC5 /* DNPreferencesViewController.h */,
 				26BE45A31629A77E000F3CC5 /* DNPreferencesViewController.m */,
-				26BE44F51629A44F000F3CC5 /* eventCell.xib */,
 			);
 			path = DailyNew;
 			sourceTree = "<group>";
@@ -684,6 +689,7 @@
 				26BE45A01629A761000F3CC5 /* QWebElement.m in Sources */,
 				26BE45A11629A761000F3CC5 /* QWebViewController.m in Sources */,
 				26BE45A41629A77E000F3CC5 /* DNPreferencesViewController.m in Sources */,
+				26BE45AF1629B278000F3CC5 /* DNAllViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
