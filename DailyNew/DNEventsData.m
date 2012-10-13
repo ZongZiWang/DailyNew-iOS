@@ -48,7 +48,7 @@ static DNEventsData *eventsDataSharedObject = nil;
 - (NSMutableArray *)universities
 {
 	if (_universities == nil) {
-		_universities = [@[@{@"id" : @1, @"name" : @"北京大学"}, @{@"id" : @1, @"name" : @"清华大学"}] mutableCopy];
+		_universities = [@[@{@"id" : @1, @"name" : @"北京大学"}, @{@"id" : @2, @"name" : @"清华大学"}] mutableCopy];
 	}
 	return _universities;
 }

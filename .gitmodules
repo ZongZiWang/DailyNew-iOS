@@ -1,3 +1,12 @@
 [submodule "iCarousel"]
 	path = iCarousel
 	url = https://github.com/nicklockwood/iCarousel.git
+[submodule "MBProgressHUD"]
+	path = MBProgressHUD
+	url = https://github.com/jdg/MBProgressHUD.git
+[submodule "ActionSheetPicker"]
+	path = ActionSheetPicker
+	url = https://github.com/TimCinel/ActionSheetPicker.git
+[submodule "QuickDialog"]
+	path = QuickDialog
+	url = https://github.com/escoz/QuickDialog.git

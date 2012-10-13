@@ -8,9 +8,10 @@
 
 #import "DNHotViewController.h"
 #import "Coffeepot.h"
+#import "ActionSheetStringPicker.h"
 #import "DNEventsData.h"
 
-@interface DNHotViewController () <iCarouselDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+@interface DNHotViewController () <iCarouselDelegate>
 
 @property (strong, nonatomic) NSMutableArray *hotEvents;
 @property (strong, nonatomic) NSMutableArray *universities;
@@ -49,15 +50,16 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 	
-    self.carousel.type = iCarouselTypeTimeMachine;
 	[self.carousel setScrollToItemBoundary:NO];
 	[self carouselCurrentItemIndexDidChange:self.carousel];
-	
-//	[[Coffeepot shared] requestWithMethodPath:@"university/" params:nil requestMethod:@"GET" success:^(CPRequest *request, id collection) {
-//		;
-//	} error:^(CPRequest *request, NSError *error) {
-//		;
-//	}];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	NSNumber *carouselType = [[NSUserDefaults standardUserDefaults] objectForKey:@"display_type"];
+	if (!carouselType) self.carousel.type = iCarouselTypeCoverFlow2;
+	else self.carousel.type = [carouselType integerValue];
 }
 
 - (void)didReceiveMemoryWarning
@@ -124,30 +126,7 @@
 
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
 {
-	
-}
-
-#pragma mark - PickerView
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
-	return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
-{
-	return [self.universities count];
-}
-
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-	return [[self.universities objectAtIndex:row] objectForKey:@"name"];
-}
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-	[[DNEventsData shared] setUniversity:[self.universities objectAtIndex:row]];
-	self.navigationItem.title = [NSString stringWithFormat:@"一周热点@%@", [[DNEventsData shared].university objectForKey:@"name"]];
+	[self performSegueWithIdentifier:@"EventDetail" sender:self];
 }
 
 #pragma mark - IBAction
@@ -160,15 +139,26 @@
 }
 
 - (IBAction)changeUniversity:(id)sender {
-	if (self.universityPicker.hidden) {
-		self.universityPicker.hidden = NO;
-		self.changeUniversityButton.style = UIBarButtonItemStyleDone;
-		self.changeUniversityButton.title = @"确认";
-	} else {
-		self.universityPicker.hidden = YES;
-		self.changeUniversityButton.style = UIBarButtonItemStyleBordered;
-		self.changeUniversityButton.title = @"切换";
+	
+	NSMutableArray *universityNames = [@[] mutableCopy];
+	for (NSDictionary *university in self.universities) {
+		[universityNames addObject:[university objectForKey:@"name"]];
 	}
+	
+	ActionSheetStringPicker *universityPicker =
+	[[ActionSheetStringPicker alloc] initWithTitle:@"选择学校"
+											  rows:universityNames
+								  initialSelection:[[DNEventsData shared].universities indexOfObject:[[DNEventsData shared] university]]
+										 doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
+											 [[DNEventsData shared] setUniversity:[self.universities objectAtIndex:selectedIndex]];
+											 self.navigationItem.title = [NSString stringWithFormat:@"一周热点@%@", selectedValue];
+										 }
+									   cancelBlock:^(ActionSheetStringPicker *picker) {
+										 
+									   }
+											origin:sender];
+	
+	[universityPicker showActionSheetPicker];
 }
 
 @end

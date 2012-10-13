@@ -17,7 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *likeLabel;
 
-@property (weak, nonatomic) IBOutlet UIPickerView *universityPicker;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *changeUniversityButton;
 
 @end
