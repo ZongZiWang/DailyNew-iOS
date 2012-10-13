@@ -8,21 +8,31 @@
 
 #import "DNHotViewController.h"
 #import "Coffeepot.h"
+#import "DNEventsData.h"
 
-@interface DNHotViewController () <iCarouselDelegate>
+@interface DNHotViewController () <iCarouselDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
-@property (strong, nonatomic) NSMutableArray *hotEventInfos;
+@property (strong, nonatomic) NSMutableArray *hotEvents;
+@property (strong, nonatomic) NSMutableArray *universities;
 
 @end
 
 @implementation DNHotViewController
 
-- (NSMutableArray *)hotEventInfos
+- (NSMutableArray *)hotEvents
 {
-	if (_hotEventInfos == nil) {
-		_hotEventInfos = [@[@{@"title" : @"三日初创", @"time" : @"这两天", @"location" : @"光华楼", @"like" : @432 }, @{@"title" : @"测试数据2", @"time" : @"这三天", @"location" : @"光华楼", @"like" : @14}, @{@"title" : @"啦啦啦啦", @"time" : @"噗噗", @"location" : @"光华楼", @"like" : @155}, @{@"title" : @"试试看", @"time" : @"嘿嘿", @"location" : @"光华楼", @"like" : @315}, @{@"title" : @"牛", @"time" : @"一二三", @"location" : @"光华楼", @"like" : @15}, @{@"title" : @"三日初创", @"time" : @"这两天", @"location" : @"光华楼", @"like" : @15}, @{@"title" : @"测试数据2", @"time" : @"这三天", @"location" : @"光华楼", @"like" : @165}, @{@"title" : @"啦啦啦啦", @"time" : @"噗噗", @"location" : @"光华楼", @"like" : @125}, @{@"title" : @"试试看", @"time" : @"嘿嘿", @"location" : @"光华楼", @"like" : @15}, @{@"title" : @"牛", @"time" : @"一二三", @"location" : @"光华楼", @"like" : @135}] mutableCopy];
+	if (_hotEvents == nil) {
+		_hotEvents = [[DNEventsData shared] hotEvents];
 	}
-	return _hotEventInfos;
+	return _hotEvents;
+}
+
+- (NSMutableArray *)universities
+{
+	if (_universities == nil) {
+		_universities = [[DNEventsData shared] universities];
+	}
+	return _universities;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -38,8 +48,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.hotEvents.type = iCarouselTypeTimeMachine;
-	[self carouselCurrentItemIndexDidChange:self.hotEvents];
+	
+    self.carousel.type = iCarouselTypeTimeMachine;
+	[self.carousel setScrollToItemBoundary:NO];
+	[self carouselCurrentItemIndexDidChange:self.carousel];
 	
 //	[[Coffeepot shared] requestWithMethodPath:@"university/" params:nil requestMethod:@"GET" success:^(CPRequest *request, id collection) {
 //		;
@@ -59,7 +71,7 @@
 - (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
     //return the total number of items in the carousel
-    return [self.hotEventInfos count];
+    return [self.hotEvents count];
 }
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
@@ -104,15 +116,59 @@
 - (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel
 {
 	NSInteger index = carousel.currentItemIndex;
-	self.titleLabel.text = [[self.hotEventInfos objectAtIndex:index] objectForKey:@"title"];
-	self.timeLabel.text = [[self.hotEventInfos objectAtIndex:index] objectForKey:@"time"];
-	self.locationLabel.text = [[self.hotEventInfos objectAtIndex:index] objectForKey:@"location"];
-	self.likeLabel.text = [NSString stringWithFormat:@"%@", [[self.hotEventInfos objectAtIndex:index] objectForKey:@"like"]];
+	self.titleLabel.text = [[self.hotEvents objectAtIndex:index] objectForKey:@"title"];
+	self.timeLabel.text = [[self.hotEvents objectAtIndex:index] objectForKey:@"time"];
+	self.locationLabel.text = [[self.hotEvents objectAtIndex:index] objectForKey:@"location"];
+	self.likeLabel.text = [NSString stringWithFormat:@"%@", [[self.hotEvents objectAtIndex:index] objectForKey:@"like"]];
 }
 
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
 {
 	
+}
+
+#pragma mark - PickerView
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+	return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+	return [self.universities count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+	return [[self.universities objectAtIndex:row] objectForKey:@"name"];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+	[[DNEventsData shared] setUniversity:[self.universities objectAtIndex:row]];
+	self.navigationItem.title = [NSString stringWithFormat:@"一周热点@%@", [[DNEventsData shared].university objectForKey:@"name"]];
+}
+
+#pragma mark - IBAction
+
+- (IBAction)likeEvent:(id)sender {
+	NSInteger index = self.carousel.currentItemIndex;
+	[[self.hotEvents objectAtIndex:index] setObject:[NSNumber numberWithInteger:[[[self.hotEvents objectAtIndex:index] objectForKey:@"like"] integerValue] + 1] forKey:@"like"];
+	
+	self.likeLabel.text = [NSString stringWithFormat:@"%@", [[self.hotEvents objectAtIndex:index] objectForKey:@"like"]];
+}
+
+- (IBAction)changeUniversity:(id)sender {
+	if (self.universityPicker.hidden) {
+		self.universityPicker.hidden = NO;
+		self.changeUniversityButton.style = UIBarButtonItemStyleDone;
+		self.changeUniversityButton.title = @"确认";
+	} else {
+		self.universityPicker.hidden = YES;
+		self.changeUniversityButton.style = UIBarButtonItemStyleBordered;
+		self.changeUniversityButton.title = @"切换";
+	}
 }
 
 @end
