@@ -123,7 +123,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="Zsz-00-qG4" customClass="iCarousel">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="326"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="298"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ggu-dg-Md6" id="vcG-3a-1Y5"/>
@@ -297,26 +297,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="line.png" id="FjM-Wv-onB">
-                                <rect key="frame" x="11" y="183" width="299" height="2"/>
+                                <rect key="frame" x="11" y="250" width="299" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QAm-9h-CkZ">
-                                <rect key="frame" x="175" y="50" width="125" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="三日初创" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LML-LG-bQk">
-                                <rect key="frame" x="154" y="20" width="146" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="20"/>
-                                <color key="textColor" red="0.20392156859999999" green="0.63529411759999999" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d1d-RT-jf4">
                                 <rect key="frame" x="175" y="79" width="125" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="14"/>
@@ -324,8 +308,24 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="三日初创" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LML-LG-bQk">
+                                <rect key="frame" x="23" y="20" width="277" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="20"/>
+                                <color key="textColor" red="0.20392156859999999" green="0.63529411759999999" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d1d-RT-jf4">
+                                <rect key="frame" x="175" y="108" width="125" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Awy-Yz-m2z">
-                                <rect key="frame" x="154" y="159" width="146" height="21"/>
+                                <rect key="frame" x="154" y="188" width="146" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="14"/>
                                 <color key="textColor" red="0.91764705879999997" green="0.59607843140000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -333,11 +333,11 @@
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="KbN-5K-uwh">
-                                <rect key="frame" x="20" y="20" width="122" height="122"/>
+                                <rect key="frame" x="20" y="87" width="122" height="122"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="PjN-Ve-8YD">
-                                <rect key="frame" x="20" y="180" width="280" height="216"/>
+                                <rect key="frame" x="20" y="276" width="280" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -346,7 +346,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qEm-uL-0BR">
-                                <rect key="frame" x="175" y="108" width="125" height="21"/>
+                                <rect key="frame" x="175" y="137" width="125" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -354,19 +354,19 @@
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="icon_clock.png" id="Zyf-Ux-phc">
-                                <rect key="frame" x="154" y="53" width="15" height="15"/>
+                                <rect key="frame" x="154" y="82" width="15" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="icon_location.png" id="2r7-HD-Pfk">
-                                <rect key="frame" x="154" y="82" width="13" height="16"/>
+                                <rect key="frame" x="154" y="111" width="13" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="icon_tag.png" id="Yix-2q-XFH">
-                                <rect key="frame" x="154" y="111" width="15" height="14"/>
+                                <rect key="frame" x="154" y="140" width="15" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rvd-IP-br4">
-                                <rect key="frame" x="154" y="137" width="146" height="21"/>
+                                <rect key="frame" x="154" y="166" width="146" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="14"/>
                                 <color key="textColor" red="0.91764705879999997" green="0.59607843140000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -412,16 +412,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bg.png" width="16" height="16"/>
+        <image name="bg.png" width="320" height="480"/>
         <image name="button_bg.png" width="397" height="322"/>
-        <image name="icon_clock.png" width="16" height="16"/>
-        <image name="icon_location.png" width="16" height="16"/>
-        <image name="icon_tag.png" width="16" height="16"/>
-        <image name="line.png" width="16" height="16"/>
-        <image name="navigation_bg_shadow.png" width="16" height="16"/>
-        <image name="tab_icon_all.png" width="16" height="16"/>
-        <image name="tab_icon_hot.png" width="16" height="16"/>
-        <image name="tab_icon_mine.png" width="16" height="16"/>
+        <image name="icon_clock.png" width="15" height="15"/>
+        <image name="icon_location.png" width="13" height="16"/>
+        <image name="icon_tag.png" width="15" height="15"/>
+        <image name="line.png" width="299" height="2"/>
+        <image name="navigation_bg_shadow.png" width="320" height="7"/>
+        <image name="tab_icon_all.png" width="21" height="18"/>
+        <image name="tab_icon_hot.png" width="23" height="25"/>
+        <image name="tab_icon_mine.png" width="21" height="22"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -429,6 +429,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Dkn-7G-W4Q"/>
+        <segue reference="F67-sk-0zc"/>
     </inferredMetricsTieBreakers>
 </document>

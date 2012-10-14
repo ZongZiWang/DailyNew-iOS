@@ -107,6 +107,7 @@
 	}
 	
 	DNEventCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+	cell.poster.contentMode = UIViewContentModeScaleAspectFit;
 	cell.poster.image = [[self.events objectAtIndex:[indexPath row]] objectForKey:@"poster"];
 	cell.titleLabel.text = [[self.events objectAtIndex:[indexPath row]] objectForKey:@"title"];
 	cell.timeLabel.text = [[self.events objectAtIndex:[indexPath row]] objectForKey:@"time"];
@@ -119,7 +120,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return 160;
+	return 240;
 }
 
 #pragma mark - Table view delegate

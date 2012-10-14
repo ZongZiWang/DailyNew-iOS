@@ -36,39 +36,27 @@ static DNEventsData *eventsDataSharedObject = nil;
 {
 	if (_hotEvents == nil) {
 		_hotEvents = [@{
-						@1 : @[
-						[@{@"title" : @"三日初创", @"time" : @"这两天", @"location" : @"光华楼",  @"poster" : [UIImage imageNamed:@"poster1"], @"like" : @432 } mutableCopy],
-						[@{@"title" : @"测试数据2", @"time" : @"这三天", @"location" : @"六教",  @"poster" : [UIImage imageNamed:@"page"], @"like" : @14} mutableCopy],
-						[@{@"title" : @"啦啦啦啦", @"time" : @"噗噗", @"location" : @"六教",  @"poster" : [UIImage imageNamed:@"page"], @"like" : @155} mutableCopy],
-						[@{@"title" : @"试试看", @"time" : @"嘿嘿", @"location" : @"六教",  @"poster" : [UIImage imageNamed:@"page"], @"like" : @315} mutableCopy],
-						[@{@"title" : @"牛", @"time" : @"一二三", @"location" : @"六教",  @"poster" : [UIImage imageNamed:@"page"], @"like" : @15} mutableCopy],
-						[@{@"title" : @"三日初创", @"time" : @"这两天", @"location" : @"六教",  @"poster" : [UIImage imageNamed:@"page"], @"like" : @15} mutableCopy],
-						[@{@"title" : @"测试数据2", @"time" : @"这三天", @"location" : @"六教",  @"poster" : [UIImage imageNamed:@"page"], @"like" : @165} mutableCopy],
-						[@{@"title" : @"啦啦啦啦", @"time" : @"噗噗", @"location" : @"光华楼",  @"poster" : [UIImage imageNamed:@"poster1"], @"like" : @125} mutableCopy],
-						[@{@"title" : @"试试看", @"time" : @"嘿嘿", @"location" : @"光华楼",  @"poster" : [UIImage imageNamed:@"poster1"], @"like" : @15} mutableCopy],
-						[@{@"title" : @"牛", @"time" : @"一二三", @"location" : @"光华楼",  @"poster" : [UIImage imageNamed:@"poster1"], @"like" : @135} mutableCopy]],
-						@2 : @[
-						[@{@"title" : @"三日初创", @"time" : @"这两天", @"location" : @"光华楼",  @"poster" : [UIImage imageNamed:@"poster1"], @"like" : @432 } mutableCopy],
-						[@{@"title" : @"测试数据2", @"time" : @"这三天", @"location" : @"光华楼",  @"poster" : [UIImage imageNamed:@"poster1"], @"like" : @14} mutableCopy],
-						[@{@"title" : @"啦啦啦啦", @"time" : @"噗噗", @"location" : @"光华楼",  @"poster" : [UIImage imageNamed:@"poster1"], @"like" : @155} mutableCopy],
-						[@{@"title" : @"试试看", @"time" : @"嘿嘿", @"location" : @"光华楼",  @"poster" : [UIImage imageNamed:@"poster1"], @"like" : @15} mutableCopy],
-						[@{@"title" : @"试试看", @"time" : @"嘿嘿", @"location" : @"光华楼",  @"poster" : [UIImage imageNamed:@"poster1"], @"like" : @315} mutableCopy],
-						[@{@"title" : @"牛", @"time" : @"一二三", @"location" : @"光华楼",  @"poster" : [UIImage imageNamed:@"poster1"], @"like" : @15} mutableCopy],
-						[@{@"title" : @"三日初创", @"time" : @"这两天", @"location" : @"光华楼",  @"poster" : [UIImage imageNamed:@"poster1"], @"like" : @15} mutableCopy],
-						[@{@"title" : @"测试数据2", @"time" : @"这三天", @"location" : @"光华楼",  @"poster" : [UIImage imageNamed:@"poster1"], @"like" : @165} mutableCopy],
-						[@{@"title" : @"啦啦啦啦", @"time" : @"噗噗", @"location" : @"光华楼",  @"poster" : [UIImage imageNamed:@"poster1"], @"like" : @125} mutableCopy],
-						[@{@"title" : @"牛", @"time" : @"一二三", @"location" : @"光华楼",  @"poster" : [UIImage imageNamed:@"poster1"], @"like" : @135} mutableCopy]],
+					  @1 : @[
+					  [@{@"title" : @"3DayStartup", @"time" : @"10/12-10/14", @"location" : @"光华二楼",  @"poster" : [UIImage imageNamed:@"img4"], @"like" : @115, @"participate" : @30, @"content" : @"You Ready? To be your own Boss。三天内创造的是宏伟的事业！"} mutableCopy],
+					  [@{@"title" : @"为你的大学生涯“开帆”", @"time" : @"11月16日 19:00", @"location" : @"理教209",  @"poster" : [UIImage imageNamed:@"img5"], @"like" : @215, @"participate" : @197, @"content" : @"蔡开凡先生谈大学生职业规划！你想构建通往“不可能”的职业幻想的现实路径么？你想与资深顾问探讨你的的职业规划困惑么？"} mutableCopy],
+					  [@{@"title" : @"四院联谊舞会", @"time" : @"4月6日 19:30", @"location" : @"二体",  @"poster" : [UIImage imageNamed:@"img6"], @"like" : @326, @"participate" : @238, @"content" : @"信科、语言、政府管理、国际关系学院联谊舞会\nDance tonight! Show yourself!"} mutableCopy],
+					  [@{@"title" : @"常用文献检索工具和方法", @"time" : @"10月15日 18:00", @"location" : @"逸夫楼303",  @"poster" : [UIImage imageNamed:@"img1"], @"like" : @186, @"participate" : @324, @"content" : @"文献是学习的基础、研究的阶梯、进步的导师，讲座将讲述最实用的检索工具、最简便的检索方法并教你如何快捷地获得文献！" } mutableCopy],
+					  [@{@"title" : @"江淮发展研究会", @"time" : @"9月23日 9:00", @"location" : @"静园",  @"poster" : [UIImage imageNamed:@"img2"], @"like" : @143, @"participate" : @352, @"content" : @"莫愁前路无知己，江淮永远是你家。江淮儿女相约静园，让你结识更多新朋友。" } mutableCopy],
+					  [@{@"title" : @"飞跃重洋出国交流讲座", @"time" : @"4月17日 21:30", @"location" : @"理二2129",  @"poster" : [UIImage imageNamed:@"img3"], @"like" : @55, @"participate" : @43, @"content" : @"信息科学技术学院学生会学术部主板的出国交流讲座，有志于出国的同学千万不要错过哦！"} mutableCopy]],
+					  @2 : @[
+					  [@{@"title" : @"江淮发展研究会", @"time" : @"9月23日 9:00", @"location" : @"静园",  @"poster" : [UIImage imageNamed:@"img2"], @"like" : @143, @"participate" : @352, @"content" : @"莫愁前路无知己，江淮永远是你家。江淮儿女相约静园，让你结识更多新朋友。" } mutableCopy],
+					  [@{@"title" : @"飞跃重洋出国交流讲座", @"time" : @"4月17日 21:30", @"location" : @"理二2129",  @"poster" : [UIImage imageNamed:@"img3"], @"like" : @55, @"participate" : @43, @"content" : @"信息科学技术学院学生会学术部主板的出国交流讲座，有志于出国的同学千万不要错过哦！"} mutableCopy],
+					  [@{@"title" : @"常用文献检索工具和方法", @"time" : @"10月15日 18:00", @"location" : @"逸夫楼303",  @"poster" : [UIImage imageNamed:@"img1"], @"like" : @186, @"participate" : @324, @"content" : @"文献是学习的基础、研究的阶梯、进步的导师，讲座将讲述最实用的检索工具、最简便的检索方法并教你如何快捷地获得文献！" } mutableCopy],
+					  [@{@"title" : @"3DayStartup", @"time" : @"10/12-10/14", @"location" : @"光华二楼",  @"poster" : [UIImage imageNamed:@"img4"], @"like" : @115, @"participate" : @30, @"content" : @"You Ready? To be your own Boss。三天内创造的是宏伟的事业！"} mutableCopy],
+					  [@{@"title" : @"为你的大学生涯“开帆”", @"time" : @"11月16日 19:00", @"location" : @"理教209",  @"poster" : [UIImage imageNamed:@"img5"], @"like" : @215, @"participate" : @197, @"content" : @"蔡开凡先生谈大学生职业规划！你想构建通往“不可能”的职业幻想的现实路径么？你想与资深顾问探讨你的的职业规划困惑么？"} mutableCopy],
+					  [@{@"title" : @"四院联谊舞会", @"time" : @"4月6日 19:30", @"location" : @"二体",  @"poster" : [UIImage imageNamed:@"img6"], @"like" : @326, @"participate" : @238, @"content" : @"信科、语言、政府管理、国际关系学院联谊舞会\nDance tonight! Show yourself!"} mutableCopy]],
 						@3 : @[
-					    [@{@"title" : @"三日初创", @"time" : @"这两天", @"location" : @"六教",  @"poster" : [UIImage imageNamed:@"page"], @"like" : @432 } mutableCopy],
-						[@{@"title" : @"三日初创", @"time" : @"这两天", @"location" : @"六教",  @"poster" : [UIImage imageNamed:@"page"], @"like" : @15} mutableCopy],
-						[@{@"title" : @"测试数据2", @"time" : @"这三天", @"location" : @"六教",  @"poster" : [UIImage imageNamed:@"page"], @"like" : @165} mutableCopy],
-						[@{@"title" : @"啦啦啦啦", @"time" : @"噗噗", @"location" : @"六教",  @"poster" : [UIImage imageNamed:@"page"], @"like" : @125} mutableCopy],
-						[@{@"title" : @"试试看", @"time" : @"嘿嘿", @"location" : @"六教",  @"poster" : [UIImage imageNamed:@"page"], @"like" : @15} mutableCopy],
-						[@{@"title" : @"测试数据2", @"time" : @"这三天", @"location" : @"六教",  @"poster" : [UIImage imageNamed:@"page"], @"like" : @14} mutableCopy],
-						[@{@"title" : @"啦啦啦啦", @"time" : @"噗噗", @"location" : @"六教",  @"poster" : [UIImage imageNamed:@"page"], @"like" : @155} mutableCopy],
-						[@{@"title" : @"试试看", @"time" : @"嘿嘿", @"location" : @"六教",  @"poster" : [UIImage imageNamed:@"page"], @"like" : @315} mutableCopy],
-						[@{@"title" : @"牛", @"time" : @"一二三", @"location" : @"六教",  @"poster" : [UIImage imageNamed:@"page"], @"like" : @15} mutableCopy],
-						[@{@"title" : @"牛", @"time" : @"一二三", @"location" : @"六教",  @"poster" : [UIImage imageNamed:@"page"], @"like" : @135} mutableCopy]]
+					  [@{@"title" : @"常用文献检索工具和方法", @"time" : @"10月15日 18:00", @"location" : @"逸夫楼303",  @"poster" : [UIImage imageNamed:@"img1"], @"like" : @186, @"participate" : @324, @"content" : @"文献是学习的基础、研究的阶梯、进步的导师，讲座将讲述最实用的检索工具、最简便的检索方法并教你如何快捷地获得文献！" } mutableCopy],
+					  [@{@"title" : @"3DayStartup", @"time" : @"10/12-10/14", @"location" : @"光华二楼",  @"poster" : [UIImage imageNamed:@"img4"], @"like" : @115, @"participate" : @30, @"content" : @"You Ready? To be your own Boss。三天内创造的是宏伟的事业！"} mutableCopy],
+					  [@{@"title" : @"四院联谊舞会", @"time" : @"4月6日 19:30", @"location" : @"二体",  @"poster" : [UIImage imageNamed:@"img6"], @"like" : @326, @"participate" : @238, @"content" : @"信科、语言、政府管理、国际关系学院联谊舞会\nDance tonight! Show yourself!"} mutableCopy],
+					  [@{@"title" : @"为你的大学生涯“开帆”", @"time" : @"11月16日 19:00", @"location" : @"理教209",  @"poster" : [UIImage imageNamed:@"img5"], @"like" : @215, @"participate" : @197, @"content" : @"蔡开凡先生谈大学生职业规划！你想构建通往“不可能”的职业幻想的现实路径么？你想与资深顾问探讨你的的职业规划困惑么？"} mutableCopy],
+					  [@{@"title" : @"江淮发展研究会", @"time" : @"9月23日 9:00", @"location" : @"静园",  @"poster" : [UIImage imageNamed:@"img2"], @"like" : @143, @"participate" : @352, @"content" : @"莫愁前路无知己，江淮永远是你家。江淮儿女相约静园，让你结识更多新朋友。" } mutableCopy],
+					  [@{@"title" : @"飞跃重洋出国交流讲座", @"time" : @"4月17日 21:30", @"location" : @"理二2129",  @"poster" : [UIImage imageNamed:@"img3"], @"like" : @55, @"participate" : @43, @"content" : @"信息科学技术学院学生会学术部主板的出国交流讲座，有志于出国的同学千万不要错过哦！"} mutableCopy]]
 					  } mutableCopy];
 	}
 	return _hotEvents;
@@ -81,7 +69,8 @@ static DNEventsData *eventsDataSharedObject = nil;
 
 - (NSArray *)eventsByUniversityID:(NSNumber *)university_id categoryID:(NSNumber *)category_id timeID:(NSNumber *)time_id
 {
-	return [self.hotEvents objectForKey:university_id];
+	NSInteger hash = ([university_id integerValue] + [category_id integerValue] + [time_id integerValue] - 1) % 3 + 1;
+	return [self.hotEvents objectForKey:[NSNumber numberWithInteger:hash]];
 }
 
 - (NSArray *)myLikeEvents
