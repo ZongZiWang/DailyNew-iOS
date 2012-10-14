@@ -10,8 +10,11 @@
 #import "Coffeepot.h"
 #import "ActionSheetStringPicker.h"
 #import "DNEventsData.h"
+#import "DNDetailViewController.h"
 
-@interface DNHotViewController () <iCarouselDelegate>
+@interface DNHotViewController () <iCarouselDelegate> {
+	NSDictionary *selectedEvent;
+}
 
 @property (strong, nonatomic) NSArray *hotEvents;
 
@@ -43,6 +46,7 @@
 	
 	[self carouselCurrentItemIndexDidChange:self.carousel];
 	self.navigationItem.title = [NSString stringWithFormat:@"一周热点@%@", [[[DNEventsData shared] university] objectForKey:@"name"]];
+	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"热点" style:UIBarButtonItemStyleBordered target:nil action:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -117,7 +121,16 @@
 
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
 {
+	selectedEvent = [self.hotEvents objectAtIndex:index];
 	[self performSegueWithIdentifier:@"EventDetail" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:@"EventDetail"]) {
+		DNDetailViewController *destinationVC = (DNDetailViewController *)segue.destinationViewController;
+		destinationVC.event = selectedEvent;
+	}
 }
 
 #pragma mark - IBAction

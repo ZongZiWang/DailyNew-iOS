@@ -35,7 +35,7 @@
 		26BE44F216299F0D000F3CC5 /* ActionSheetDistancePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BE44EB16299F0D000F3CC5 /* ActionSheetDistancePicker.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		26BE44F316299F0D000F3CC5 /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BE44ED16299F0D000F3CC5 /* ActionSheetStringPicker.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		26BE44F416299F0D000F3CC5 /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BE44EF16299F0D000F3CC5 /* DistancePickerView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		26BE44F61629A44F000F3CC5 /* eventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BE44F51629A44F000F3CC5 /* eventCell.xib */; };
+		26BE44F61629A44F000F3CC5 /* DNEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BE44F51629A44F000F3CC5 /* DNEventCell.xib */; };
 		26BE456B1629A761000F3CC5 /* DOAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BE44F91629A760000F3CC5 /* DOAutocompleteTextField.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		26BE456C1629A761000F3CC5 /* NSMutableArray+IMSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BE44FB1629A760000F3CC5 /* NSMutableArray+IMSExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		26BE456D1629A761000F3CC5 /* NSMutableArray+MoveObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BE44FD1629A760000F3CC5 /* NSMutableArray+MoveObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -95,6 +95,9 @@
 		26BE45AA1629A862000F3CC5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BE45A91629A862000F3CC5 /* MapKit.framework */; };
 		26BE45AC1629A869000F3CC5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BE45AB1629A869000F3CC5 /* CoreLocation.framework */; };
 		26BE45AF1629B278000F3CC5 /* DNAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BE45AE1629B278000F3CC5 /* DNAllViewController.m */; };
+		26BE45BA162A4BE0000F3CC5 /* DNEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BE45B9162A4BE0000F3CC5 /* DNEventCell.m */; };
+		26BE45C2162A5160000F3CC5 /* DNMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BE45C1162A5160000F3CC5 /* DNMyViewController.m */; };
+		26BE45C5162A5717000F3CC5 /* DNDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BE45C4162A5717000F3CC5 /* DNDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,7 +145,7 @@
 		26BE44ED16299F0D000F3CC5 /* ActionSheetStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetStringPicker.m; sourceTree = "<group>"; };
 		26BE44EE16299F0D000F3CC5 /* DistancePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistancePickerView.h; sourceTree = "<group>"; };
 		26BE44EF16299F0D000F3CC5 /* DistancePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePickerView.m; sourceTree = "<group>"; };
-		26BE44F51629A44F000F3CC5 /* eventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = eventCell.xib; sourceTree = "<group>"; };
+		26BE44F51629A44F000F3CC5 /* DNEventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DNEventCell.xib; sourceTree = "<group>"; };
 		26BE44F81629A760000F3CC5 /* DOAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOAutocompleteTextField.h; sourceTree = "<group>"; };
 		26BE44F91629A760000F3CC5 /* DOAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOAutocompleteTextField.m; sourceTree = "<group>"; };
 		26BE44FA1629A760000F3CC5 /* NSMutableArray+IMSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+IMSExtensions.h"; sourceTree = "<group>"; };
@@ -264,6 +267,12 @@
 		26BE45AB1629A869000F3CC5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		26BE45AD1629B278000F3CC5 /* DNAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNAllViewController.h; sourceTree = "<group>"; };
 		26BE45AE1629B278000F3CC5 /* DNAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNAllViewController.m; sourceTree = "<group>"; };
+		26BE45B8162A4BE0000F3CC5 /* DNEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNEventCell.h; sourceTree = "<group>"; };
+		26BE45B9162A4BE0000F3CC5 /* DNEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNEventCell.m; sourceTree = "<group>"; };
+		26BE45C0162A515F000F3CC5 /* DNMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNMyViewController.h; sourceTree = "<group>"; };
+		26BE45C1162A5160000F3CC5 /* DNMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNMyViewController.m; sourceTree = "<group>"; };
+		26BE45C3162A5716000F3CC5 /* DNDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNDetailViewController.h; sourceTree = "<group>"; };
+		26BE45C4162A5717000F3CC5 /* DNDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,9 +343,15 @@
 				2616AB351629525800AFFF2B /* DNHotViewController.m */,
 				26BE45AD1629B278000F3CC5 /* DNAllViewController.h */,
 				26BE45AE1629B278000F3CC5 /* DNAllViewController.m */,
-				26BE44F51629A44F000F3CC5 /* eventCell.xib */,
+				26BE45B8162A4BE0000F3CC5 /* DNEventCell.h */,
+				26BE45B9162A4BE0000F3CC5 /* DNEventCell.m */,
+				26BE44F51629A44F000F3CC5 /* DNEventCell.xib */,
+				26BE45C0162A515F000F3CC5 /* DNMyViewController.h */,
+				26BE45C1162A5160000F3CC5 /* DNMyViewController.m */,
 				26BE45A21629A77E000F3CC5 /* DNPreferencesViewController.h */,
 				26BE45A31629A77E000F3CC5 /* DNPreferencesViewController.m */,
+				26BE45C3162A5716000F3CC5 /* DNDetailViewController.h */,
+				26BE45C4162A5717000F3CC5 /* DNDetailViewController.m */,
 			);
 			path = DailyNew;
 			sourceTree = "<group>";
@@ -608,7 +623,7 @@
 				2616AB5516295F0800AFFF2B /* page.png in Resources */,
 				2616AB5616295F0800AFFF2B /* placeholder.png in Resources */,
 				2616AB651629652B00AFFF2B /* like.png in Resources */,
-				26BE44F61629A44F000F3CC5 /* eventCell.xib in Resources */,
+				26BE44F61629A44F000F3CC5 /* DNEventCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,6 +705,9 @@
 				26BE45A11629A761000F3CC5 /* QWebViewController.m in Sources */,
 				26BE45A41629A77E000F3CC5 /* DNPreferencesViewController.m in Sources */,
 				26BE45AF1629B278000F3CC5 /* DNAllViewController.m in Sources */,
+				26BE45BA162A4BE0000F3CC5 /* DNEventCell.m in Sources */,
+				26BE45C2162A5160000F3CC5 /* DNMyViewController.m in Sources */,
+				26BE45C5162A5717000F3CC5 /* DNDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

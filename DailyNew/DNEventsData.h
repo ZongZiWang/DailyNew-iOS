@@ -26,5 +26,8 @@
 - (NSArray *)timeIntervalNames;
 
 - (NSArray *)hotEventsByUniversityID:(NSNumber *)university_id;
+- (NSArray *)eventsByUniversityID:(NSNumber *)university_id categoryID:(NSNumber *)category_id timeID:(NSNumber *)time_id;
+- (NSArray *)myLikeEvents;
+- (NSArray *)myParticipateEvents;
 
 @end

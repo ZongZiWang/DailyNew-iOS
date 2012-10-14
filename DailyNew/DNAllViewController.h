@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *timeButton;
 @property (weak, nonatomic) IBOutlet UIButton *categoryButton;
 @property (weak, nonatomic) IBOutlet UIButton *universityButton;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

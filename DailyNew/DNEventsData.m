@@ -79,6 +79,21 @@ static DNEventsData *eventsDataSharedObject = nil;
 	return [self.hotEvents objectForKey:university_id];
 }
 
+- (NSArray *)eventsByUniversityID:(NSNumber *)university_id categoryID:(NSNumber *)category_id timeID:(NSNumber *)time_id
+{
+	return [self.hotEvents objectForKey:university_id];
+}
+
+- (NSArray *)myLikeEvents
+{
+	return [self.hotEvents objectForKey:@1];
+}
+
+- (NSArray *)myParticipateEvents
+{
+	return [self.hotEvents objectForKey:@2];
+}
+
 - (NSMutableArray *)universities
 {
 	if (_universities == nil) {
