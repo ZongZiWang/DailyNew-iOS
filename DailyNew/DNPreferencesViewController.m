@@ -23,7 +23,6 @@
 
 - (void)setQuickDialogTableView:(QuickDialogTableView *)aQuickDialogTableView {
     [super setQuickDialogTableView:aQuickDialogTableView];
-	[self.quickDialogTableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
 }
 
 #pragma mark - View Lifecycle
@@ -80,6 +79,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+	self.quickDialogTableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]];
 }
 
 - (void)didReceiveMemoryWarning

@@ -55,6 +55,15 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+	self = [super initWithCoder:aDecoder];
+	if (self) {
+		[self.navigationController.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tab_icon_selected_mine"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_icon_mine"]];
+	}
+	return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -67,6 +76,7 @@
 	likeOrParticipate = YES;
 	isNibRegistered = NO;
 	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"我的" style:UIBarButtonItemStyleBordered target:nil action:nil];
+	self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -97,10 +107,12 @@
 	}
 	
 	DNEventCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+	cell.poster.image = [[self.events objectAtIndex:[indexPath row]] objectForKey:@"poster"];
 	cell.titleLabel.text = [[self.events objectAtIndex:[indexPath row]] objectForKey:@"title"];
 	cell.timeLabel.text = [[self.events objectAtIndex:[indexPath row]] objectForKey:@"time"];
 	cell.locationLabel.text = [[self.events objectAtIndex:[indexPath row]] objectForKey:@"location"];
-	cell.likeLabel.text = [NSString stringWithFormat:@"%@", [[self.events objectAtIndex:[indexPath row]] objectForKey:@"like"]];
+	cell.likeLabel.text = [NSString stringWithFormat:@"%d人喜欢", [[[self.events objectAtIndex:[indexPath row]] objectForKey:@"like"] integerValue]];
+	cell.participateLabel.text = [NSString stringWithFormat:@"%d人参加", [[[self.events objectAtIndex:[indexPath row]] objectForKey:@"participate"] integerValue]];
     
     return cell;
 }

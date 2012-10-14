@@ -43,12 +43,15 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
+	self.poster.contentMode = UIViewContentModeScaleAspectFill;
+	self.poster.image = [self.event objectForKey:@"poster"];
 	self.navigationItem.title = [self.event objectForKey:@"title"];
 	self.titleLabel.text = [self.event objectForKey:@"title"];
 	self.timeLabel.text = [self.event objectForKey:@"time"];
 	self.locationLabel.text = [self.event objectForKey:@"location"];
-	self.likeLabel.text = [NSString stringWithFormat:@"%@", [self.event objectForKey:@"like"]];
-	self.contentText.text = [self.event objectForKey:@"content"];
+	self.likeLabel.text = [NSString stringWithFormat:@"%d人喜欢", [[self.event objectForKey:@"like"] integerValue]];
+	self.participateLabel.text = [NSString stringWithFormat:@"%d人参加", [[self.event objectForKey:@"participate"] integerValue]];
+	self.contentText.text = [NSString stringWithFormat:@"详细内容: \n%@", [self.event objectForKey:@"content"]];
 }
 
 - (void)didReceiveMemoryWarning

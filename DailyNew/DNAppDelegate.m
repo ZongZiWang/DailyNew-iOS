@@ -8,6 +8,9 @@
 
 #import "DNAppDelegate.h"
 
+#define ColorTheme1 [UIColor colorWithRed:52/255.0 green:162/255.0 blue:232/255.0 alpha:1.0]
+#define ColorTheme2 [UIColor colorWithRed:234/255.0 green:152/255.0 blue:0/255.0 alpha:1.0]
+
 @implementation DNAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -15,16 +18,30 @@
     // Override point for customization after application launch.
 	[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigation_bg"] forBarMetrics:UIBarMetricsDefault];
     
-	NSDictionary *titleTextAttributes = @{ UITextAttributeFont : [UIFont fontWithName:@"STHeitiSC-Medium" size:20], UITextAttributeTextColor : [UIColor colorWithRed:52/255.0 green:162/255.0 blue:232/255.0 alpha:1.0], UITextAttributeTextShadowOffset : [NSValue valueWithUIOffset:UIOffsetMake(0, -1)] };
-	[[UINavigationBar appearance] setTitleTextAttributes:titleTextAttributes];
+	NSDictionary *navBarTitleTextAttributes = @{ UITextAttributeFont : [UIFont fontWithName:@"STHeitiSC-Medium" size:20], UITextAttributeTextColor : ColorTheme1, UITextAttributeTextShadowOffset : [NSValue valueWithUIOffset:UIOffsetMake(0, -1)] };
+	[[UINavigationBar appearance] setTitleTextAttributes:navBarTitleTextAttributes];
 	
 	[[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"tab_bg"]];
-	[[UITabBar appearance] setSelectionIndicatorImage:[[UIImage imageNamed:@"tab_button_selected_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 49, 5)]];
+	[[UITabBar appearance] setSelectionIndicatorImage:[[UIImage imageNamed:@"tab_button_selected_bg+light"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 0, 10, 0)]];
 
-	[[UIBarButtonItem appearance] setBackgroundImage:[[UIImage imageNamed:@"navigation_button"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-	[[UIBarButtonItem appearance] setBackgroundImage:[[UIImage imageNamed:@"navigation_button_pressed"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+	[[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setBackgroundImage:[[UIImage imageNamed:@"navigation_button"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+	[[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setBackgroundImage:[[UIImage imageNamed:@"navigation_button_pressed"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
 	
-	[[UITabBarItem appearance] setTitleTextAttributes:@{UITextAttributeTextColor : [UIColor colorWithRed:52/255.0 green:162/255.0 blue:232/255.0 alpha:1.0], UITextAttributeTextShadowOffset : [NSValue valueWithUIOffset:UIOffsetMake(0, -1)]}];
+	[[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setBackButtonBackgroundImage:[[UIImage imageNamed:@"navigation_button_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 13, 0, 5)] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+	[[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setBackButtonBackgroundImage:[[UIImage imageNamed:@"navigation_button_back_pressed"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 13, 0, 5)] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+	
+	[[UISegmentedControl appearanceWhenContainedIn:[UINavigationBar class], nil] setBackgroundImage:[[UIImage imageNamed:@"navigation_button"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+	[[UISegmentedControl appearanceWhenContainedIn:[UINavigationBar class], nil] setBackgroundImage:[[UIImage imageNamed:@"navigation_button_pressed"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+	
+	[[UISegmentedControl appearance] setDividerImage:[UIImage imageNamed:@"divider"] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+	[[UISegmentedControl appearance] setDividerImage:[UIImage imageNamed:@"divider"] forLeftSegmentState:UIControlStateHighlighted rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+	[[UISegmentedControl appearance] setDividerImage:[UIImage imageNamed:@"divider"] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+	[[UISegmentedControl appearance] setDividerImage:[UIImage imageNamed:@"divider"] forLeftSegmentState:UIControlStateHighlighted rightSegmentState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+	
+	NSDictionary *tabBarTitleTextAttributes = @{ UITextAttributeFont : [UIFont fontWithName:@"STHeitiSC-Medium" size:11], UITextAttributeTextColor : ColorTheme1, UITextAttributeTextShadowOffset : [NSValue valueWithUIOffset:UIOffsetMake(0, -1)] };
+	[[UITabBarItem appearance] setTitleTextAttributes:tabBarTitleTextAttributes forState:UIControlStateNormal];
+	NSDictionary *tabBarHighlightedTitleTextAttributes = @{ UITextAttributeFont : [UIFont fontWithName:@"STHeitiSC-Medium" size:11], UITextAttributeTextColor : ColorTheme2, UITextAttributeTextShadowOffset : [NSValue valueWithUIOffset:UIOffsetMake(0, -1)] };
+	[[UITabBarItem appearance] setTitleTextAttributes:tabBarHighlightedTitleTextAttributes forState:UIControlStateHighlighted];
 	
     return YES;
 }

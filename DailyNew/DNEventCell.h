@@ -10,9 +10,11 @@
 
 @interface DNEventCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *poster;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *likeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *participateLabel;
 
 @end

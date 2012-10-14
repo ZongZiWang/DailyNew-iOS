@@ -43,8 +43,7 @@
 {
 	self = [super initWithCoder:aDecoder];
 	if (self) {
-		self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"The Title" image:nil tag:0];
-        [[self tabBarItem] setFinishedSelectedImage:[UIImage imageNamed:@"tab_icon_selected_hot"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_icon_hot"]];
+		[self.navigationController.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tab_icon_selected_hot"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_icon_hot"]];
 	}
 	return self;
 }
@@ -92,9 +91,8 @@
         //this `if (view == nil) {...}` statement because the view will be
         //recycled and used with other index values later
         view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
-//		((UIImageView *)view).image = [[self.hotEventInfos objectAtIndex:index] objectForKey:@"poster"];
-        ((UIImageView *)view).image = [UIImage imageNamed:@"poster~~~"];
-//		view.backgroundColor = [UIColor yellowColor];
+		((UIImageView *)view).image = [[self.hotEvents objectAtIndex:index] objectForKey:@"poster"];
+        if (!((UIImageView *)view).image) ((UIImageView *)view).image = [UIImage imageNamed:@"page"];
 		view.contentMode = UIViewContentModeCenter;
         
         label = [[UILabel alloc] initWithFrame:view.bounds];
@@ -126,7 +124,8 @@
 	self.titleLabel.text = [[self.hotEvents objectAtIndex:index] objectForKey:@"title"];
 	self.timeLabel.text = [[self.hotEvents objectAtIndex:index] objectForKey:@"time"];
 	self.locationLabel.text = [[self.hotEvents objectAtIndex:index] objectForKey:@"location"];
-	self.likeLabel.text = [NSString stringWithFormat:@"%@", [[self.hotEvents objectAtIndex:index] objectForKey:@"like"]];
+	self.likeLabel.text = [NSString stringWithFormat:@"%d人喜欢", [[[self.hotEvents objectAtIndex:index] objectForKey:@"like"] integerValue]];
+	self.participateLabel.text = [NSString stringWithFormat:@"%d人参加", [[[self.hotEvents objectAtIndex:index] objectForKey:@"participate"] integerValue]];
 }
 
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
@@ -178,4 +177,8 @@
 	[universityPicker showActionSheetPicker];
 }
 
+- (void)viewDidUnload {
+	[self setParticipateLabel:nil];
+	[super viewDidUnload];
+}
 @end
