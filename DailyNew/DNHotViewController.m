@@ -39,6 +39,16 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+	self = [super initWithCoder:aDecoder];
+	if (self) {
+		self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"The Title" image:nil tag:0];
+        [[self tabBarItem] setFinishedSelectedImage:[UIImage imageNamed:@"tab_icon_selected_hot"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_icon_hot"]];
+	}
+	return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -83,7 +93,7 @@
         //recycled and used with other index values later
         view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
 //		((UIImageView *)view).image = [[self.hotEventInfos objectAtIndex:index] objectForKey:@"poster"];
-        ((UIImageView *)view).image = [UIImage imageNamed:@"page"];
+        ((UIImageView *)view).image = [UIImage imageNamed:@"poster~~~"];
 //		view.backgroundColor = [UIColor yellowColor];
 		view.contentMode = UIViewContentModeCenter;
         
@@ -105,7 +115,7 @@
     //views outside of the `if (view == nil) {...}` check otherwise
     //you'll get weird issues with carousel item content appearing
     //in the wrong place in the carousel
-    label.text = [[self.hotEvents objectAtIndex:index] objectForKey:@"title"];
+//    label.text = [[self.hotEvents objectAtIndex:index] objectForKey:@"title"];
     
     return view;
 }

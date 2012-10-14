@@ -59,6 +59,7 @@
 
 - (void)viewDidUnload {
     [self setContentText:nil];
+	[self setPoster:nil];
     [super viewDidUnload];
 }
 

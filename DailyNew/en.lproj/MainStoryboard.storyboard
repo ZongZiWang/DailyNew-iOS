@@ -7,7 +7,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="15">
             <objects>
-                <tabBarController id="4" sceneMemberID="viewController">
+                <tabBarController id="4" customClass="DNTabBarController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="5">
@@ -80,8 +80,8 @@
         <!--Navigation Controller - 我的-->
         <scene sceneID="QIN-TN-mBV">
             <objects>
-                <navigationController definesPresentationContext="YES" id="la5-U5-0jn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的" id="vIb-A9-Mzk"/>
+                <navigationController definesPresentationContext="YES" id="la5-U5-0jn" customClass="DNNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="我的" image="tab_icon_mine.png" id="vIb-A9-Mzk"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PLw-P8-1mX">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -96,8 +96,8 @@
         <!--Navigation Controller - 热点-->
         <scene sceneID="JtE-DN-N97">
             <objects>
-                <navigationController definesPresentationContext="YES" id="0sf-QC-HLW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="热点" id="4pc-mW-zg9"/>
+                <navigationController definesPresentationContext="YES" id="0sf-QC-HLW" customClass="DNNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="热点" image="tab_icon_hot.png" id="4pc-mW-zg9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4TN-we-Tpi">
                         <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -118,12 +118,12 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" id="4XF-mC-PG3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg.png" id="4XF-mC-PG3">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="Zsz-00-qG4" customClass="iCarousel">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="269"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="326"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ggu-dg-Md6" id="vcG-3a-1Y5"/>
@@ -131,7 +131,7 @@
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IxN-k5-b86">
-                                <rect key="frame" x="226" y="323" width="24" height="24"/>
+                                <rect key="frame" x="121" y="334" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="like.png">
@@ -145,33 +145,44 @@
                                     <action selector="likeEvent:" destination="ggu-dg-Md6" eventType="touchUpInside" id="ZD8-TY-sAR"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2cv-Ii-kBb">
-                                <rect key="frame" x="20" y="305" width="220" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2cv-Ii-kBb">
+                                <rect key="frame" x="70" y="300" width="75" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1La-Ag-yUB">
-                                <rect key="frame" x="20" y="276" width="220" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="三日初创" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1La-Ag-yUB">
+                                <rect key="frame" x="50" y="276" width="220" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="20"/>
+                                <color key="textColor" red="0.20392156859999999" green="0.63529411759999999" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z4C-g3-xgT">
-                                <rect key="frame" x="20" y="326" width="220" height="21"/>
+                                <rect key="frame" x="175" y="300" width="75" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h27-N1-mBf">
+                                <rect key="frame" x="153" y="335" width="60" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h27-N1-mBf">
-                                <rect key="frame" x="256" y="326" width="60" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="在" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eyC-Vp-u1q">
+                                <rect key="frame" x="153" y="300" width="14" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -275,7 +286,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" id="jhP-Eg-d6i">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg.png" id="jhP-Eg-d6i">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -338,12 +349,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9En-A9-vy8"/>
+                    <navigationItem key="navigationItem" id="9En-A9-vy8">
+                        <barButtonItem key="rightBarButtonItem" title="参加" id="kXi-TM-KTK"/>
+                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="contentText" destination="PjN-Ve-8YD" id="270-gF-EpI"/>
                         <outlet property="likeLabel" destination="3mn-W9-65N" id="E3v-dt-vSO"/>
                         <outlet property="locationLabel" destination="jn0-OZ-s9J" id="66T-jG-xaX"/>
+                        <outlet property="poster" destination="KbN-5K-uwh" id="PlP-aO-eTy"/>
                         <outlet property="timeLabel" destination="Efu-mS-kBH" id="82r-U0-dvH"/>
                         <outlet property="titleLabel" destination="S3I-Uh-A7m" id="lCl-pn-qsG"/>
                     </connections>
@@ -355,8 +369,8 @@
         <!--Navigation Controller - 全部-->
         <scene sceneID="X60-AY-vcn">
             <objects>
-                <navigationController definesPresentationContext="YES" id="6Il-Si-uJc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="全部" id="RDv-39-x2w"/>
+                <navigationController definesPresentationContext="YES" id="6Il-Si-uJc" customClass="DNNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="全部" image="tab_icon_all.png" id="RDv-39-x2w"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bmI-BX-kg4">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -370,8 +384,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background.png" width="50" height="468"/>
+        <image name="bg.png" width="320" height="480"/>
         <image name="like.png" width="180" height="180"/>
+        <image name="tab_icon_all.png" width="22" height="18"/>
+        <image name="tab_icon_hot.png" width="24" height="25"/>
+        <image name="tab_icon_mine.png" width="22" height="23"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

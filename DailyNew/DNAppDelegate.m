@@ -13,6 +13,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+	[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigation_bg"] forBarMetrics:UIBarMetricsDefault];
+    
+	NSDictionary *titleTextAttributes = @{ UITextAttributeFont : [UIFont fontWithName:@"STHeitiSC-Medium" size:20], UITextAttributeTextColor : [UIColor colorWithRed:52/255.0 green:162/255.0 blue:232/255.0 alpha:1.0], UITextAttributeTextShadowOffset : [NSValue valueWithUIOffset:UIOffsetMake(0, -1)] };
+	[[UINavigationBar appearance] setTitleTextAttributes:titleTextAttributes];
+	
+	[[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"tab_bg"]];
+	[[UITabBar appearance] setSelectionIndicatorImage:[[UIImage imageNamed:@"tab_button_selected_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 49, 5)]];
+
+	[[UIBarButtonItem appearance] setBackgroundImage:[[UIImage imageNamed:@"navigation_button"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+	[[UIBarButtonItem appearance] setBackgroundImage:[[UIImage imageNamed:@"navigation_button_pressed"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+	
+	[[UITabBarItem appearance] setTitleTextAttributes:@{UITextAttributeTextColor : [UIColor colorWithRed:52/255.0 green:162/255.0 blue:232/255.0 alpha:1.0], UITextAttributeTextShadowOffset : [NSValue valueWithUIOffset:UIOffsetMake(0, -1)]}];
+	
     return YES;
 }
 							
